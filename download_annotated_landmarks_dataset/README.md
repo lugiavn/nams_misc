@@ -9,7 +9,7 @@ http://download.europe.naverlabs.com/Computer-Vision-CodeandModels/
 
 Run the script
 
-The original dataset is from the paper [http://sites.skoltech.ru/compvision/projects/neuralcodes/]
+The original dataset is from the paper [Neural Codes for Image Retrieval]
 
 http://sites.skoltech.ru/compvision/projects/neuralcodes/
 
