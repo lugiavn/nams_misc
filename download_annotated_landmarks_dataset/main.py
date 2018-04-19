@@ -39,7 +39,7 @@ def download_image(i):
 # par download
 import multiprocessing  
 pool = multiprocessing.Pool(processes=10)
-pool.map(download_image, range(len(lines))
+pool.map(download_image, range(len(lines)))
 pool.close()
 pool.join()   
 print('done')
