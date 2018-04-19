@@ -4,23 +4,25 @@ import sys
 import urllib
 import requests
 
+# read txt
 lines = []
 with open('annotations_landmarks/annotation_full_train.txt') as f:
     lines += f.readlines()
 with open('annotations_landmarks/annotation_full_val.txt') as f:
     lines += f.readlines()
 
+# create folder
 image_path = './images/'
 try:
     os.mkdir(image_path)
 except:
     print 'hmm'
-
-i = 0
-for line in lines:
+    
+# download function
+def download_image(i):
     if i % 1000 == 0:
         print '=============', i
-    line = line.split()
+    line = lines[i].split()
     try:
             r = requests.get(line[0], allow_redirects=False, timeout=10.0)
             if r.status_code == 200:
@@ -33,5 +35,11 @@ for line in lines:
         if e is KeyboardInterrupt:
             raise e
         print i, 'something is wrong with', line[0], e
-    i += 1
-
+    
+# par download
+import multiprocessing  
+pool = multiprocessing.Pool(processes=10)
+pool.map(download_image, range(len(lines))
+pool.close()
+pool.join()   
+print('done')
