@@ -43,3 +43,17 @@ pool.map(download_image, range(len(lines)))
 pool.close()
 pool.join()   
 print('done')
+
+# check image read
+import os
+import sys
+import imageio
+rm_count = 0
+for f in os.listdir(image_path):
+    f = image_path + f
+    try:
+        img = imageio.imread(f)
+    except:
+        os.remove(f)
+        rm_count += 1
+print rm_count
